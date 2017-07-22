@@ -1,6 +1,6 @@
 # Coding: utf-8
 
-#Esta calculadora tem por objetivo calcular o salário liquido.
+#This calc is a brazilian salary calculator with the taxes.
 
 bruto = float(input('Qual o seu salário bruto?'))
 inss = float(0)
@@ -13,6 +13,7 @@ print('Salário Bruto: R$ ',bruto)
 
 msal = bruto
 
+#Inss TAX
 if(msal <= 1659.39):
     inss = (msal * 0.08)
     print('Desconto INSS: R$ ', inss)
@@ -26,8 +27,10 @@ elif(msal> 5531.31):
     inss = 608.44
     print('Desconto INSS: R$ ', inss)
 
+#IRRPF Calc Base
 fsal = msal - inss - descdep
 
+#IRRPF TAX
 if(fsal > 1903.98 and fsal <= 2826.65):
     irrpf = fsal * 0.075
     imposto = irrpf - 142.8
@@ -43,7 +46,7 @@ elif(fsal > 4664.68):
 
 print('Desconto IRRPF: R$ ', imposto)
 
-
+#Salary without taxes
 liquid = bruto - inss - imposto
 print('O salário liquido é: R$ ', liquid)
 
